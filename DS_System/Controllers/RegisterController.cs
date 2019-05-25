@@ -36,6 +36,7 @@ namespace DS_System.Controllers
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://localhost:3000");
             var response = client.PostAsJsonAsync("/api/users",user).Result;
+
             if (response.IsSuccessStatusCode)
             {
                 return new JsonResult() { Data = response.Headers, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
